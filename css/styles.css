@@ -14,6 +14,10 @@
   box-sizing: border-box;
 }
 /* TYPOGRAPHY */
+::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
 html {
   font-size: 62.5%;
 }
@@ -39,6 +43,7 @@ h2 {
 h3 {
   font-size: 3rem;
   margin-bottom: 2rem;
+  font-weight: 500;
 }
 p {
   margin-top: 0;
@@ -113,7 +118,6 @@ a {
 .list {
   list-style: none;
   padding-left: 0; /*remove default padding applied by browsers*/
-  color: Var(--color-headings);
 }
 .list--inline .list__item {
   display: inline-block;
@@ -122,6 +126,7 @@ a {
 .list--tick {
   list-style-image: url(../images/tick.svg);
   padding-left: 3rem; /*to bring the ticks back on screen since they are off the screen*/
+  color: Var(--color-headings);
 }
 .list--tick .list__item {
   padding-left: 0.5rem;
@@ -345,6 +350,7 @@ a {
 /* MEDIA */
 .media {
   display: flex;
+  margin-bottom: 4rem;
 }
 .media__title {
   margin-top: 0;
@@ -509,7 +515,9 @@ a {
   background: #000;
   color: #7b858b;
 }
-.block--dark .block__heading {
+.block--dark h1,
+.block--dark h2,
+.block--dark h3 {
   color: #fff;
 }
 .block--skewed-right {
@@ -518,12 +526,12 @@ a {
     0% 0%,
     100% 0%,
     100% 100%,
-    0% 80%
+    0% 90%
   ); /*use clip path generator then edit percentages for precision*/
 }
 .block--skewed-left {
   padding-bottom: calc(var(--padding-vertical) + 4rem);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
 }
 .container {
   margin: 0 auto;
@@ -592,9 +600,7 @@ a {
 .hero__image {
   width: 100%;
 }
-.hero {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
-}
+
 @media screen and (min-width: 768px) {
   .hero {
     padding-top: 0;
@@ -658,4 +664,21 @@ a {
   .feature:nth-of-type(even) .feature__content {
     order: 2;
   } /*alternating image and content in the block instead of manually ordering each part*/
+}
+/* SHOWCASE BLOCK */
+.block-showcase__image > img {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .block-showcase .grid {
+    grid-template-columns: 50% 50%;
+  }
+  .block-showcase__image {
+    justify-self: end;
+  }
+  .block-showcase__image > img {
+    width: auto;
+    max-width: 700px;
+  }
 }
