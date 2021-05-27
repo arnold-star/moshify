@@ -640,3 +640,22 @@ a {
   max-width: 500px;
   margin: 0 auto;
 }
+/* FEATURES BLOCK */
+.feature__heading {
+  margin: 1rem 0;
+}
+.feature {
+  gap: 4rem 2rem; /*rows, columns*/
+  margin: 12rem 0;
+}
+.feature:first-of-type {
+  margin-top: 6rem;
+}
+.feature__image {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .feature:nth-of-type(even) .feature__content {
+    order: 2;
+  } /*alternating image and content in the block instead of manually ordering each part*/
+}
